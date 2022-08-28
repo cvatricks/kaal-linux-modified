@@ -27,7 +27,7 @@ jobs:
        - name: cloning repository
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/dakshy/THEncoder2.0 kaali
+           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/Tellyfun/xxx kaali
        - name: running kaali-linux server
          timeout-minutes: 350
          continue-on-error: true
