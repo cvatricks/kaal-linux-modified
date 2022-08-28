@@ -1,4 +1,4 @@
-name: Kaali-Linux
+name: Mirror Bot [Kaali]
 
 on:
     push:
@@ -15,7 +15,7 @@ jobs:
        - uses: styfle/cancel-workflow-action@0.9.0
          name: "cancel duplicate workflow runs"
          with:
-            all_but_latest: true
+            workflow_id: .github/workflows/mirrorbot.yml
             access_token: ${{ github.token }}
        - name: initialization kaali-linux
          continue-on-error: true
@@ -27,20 +27,20 @@ jobs:
        - name: cloning repository
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.BOT_REPO }} kaali
+           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/tellyfun/xxx kaali
        - name: running kaali-linux server
          timeout-minutes: 350
          continue-on-error: true
          run: |
            cd kaali
-           docker build . -t kaali
+           docker build -q . -t kaali
            docker run kaali
-       - name: loop kaali-linux server
-         continue-on-error: true
-         run: |
-              git clone https://github.com/${GITHUB_REPOSITORY} loop
-              cd loop || exit 1
-              echo $(date -u +%T%P) >> loop.txt
-              git add loop.txt
-              git commit -m "Kaali-Linux : Loop $(date -u +%D-%T%P)"
-              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:kaali-linux
+       #- name: loop kaali-linux server
+       #  continue-on-error: true
+       #  run: |
+       #       git clone https://github.com/${GITHUB_REPOSITORY} loop
+       #       cd loop || exit 1
+       #       echo $(date -u +%T%P) >> loop.txt
+       #       git add loop.txt
+       #       git commit -m "Kaali-Linux : Loop $(date -u +%D-%T%P)"
+       #       git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:kaali-linux
