@@ -1,4 +1,4 @@
-name: Enc Bot [Kaali]
+name: Mirror Bot [Kaali]
 
 on:
     push:
@@ -27,7 +27,7 @@ jobs:
        - name: cloning repository
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/Tellyfun/xxx kaali
+           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/tellyfun/xxx kaali
        - name: running kaali-linux server
          timeout-minutes: 350
          continue-on-error: true
@@ -35,3 +35,14 @@ jobs:
            cd kaali
            docker build -q . -t kaali
            docker run kaali
+       #- name: loop kaali-linux server
+       #  continue-on-error: true
+       #  run: |
+       #       git clone https://github.com/${GITHUB_REPOSITORY} loop
+       #       cd loop || exit 1
+       #       echo $(date -u +%T%P) >> loop.txt
+       #       git add loop.txt
+       #       git commit -m "Kaali-Linux : Loop $(date -u +%D-%T%P)"
+       #       git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:kaali-linux
+
+
