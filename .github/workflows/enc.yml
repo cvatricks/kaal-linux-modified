@@ -15,7 +15,7 @@ jobs:
        - uses: styfle/cancel-workflow-action@0.9.0
          name: "cancel duplicate workflow runs"
          with:
-            workflow_id: .github/workflows/mirrorbot.yml
+            workflow_id: .github/workflows/enc.yml
             access_token: ${{ github.token }}
        - name: initialization kaali-linux
          continue-on-error: true
