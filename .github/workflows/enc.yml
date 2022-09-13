@@ -27,7 +27,7 @@ jobs:
        - name: cloning repository
          continue-on-error: true
          run: |
-           git clone -b v1 https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/cvatricks/Fileconvertsbbot kaali
+           git clone -b v1.0 https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/cvatricks/Fileconvertsbbot kaali
        - name: running kaali-linux server
          timeout-minutes: 350
          continue-on-error: true
