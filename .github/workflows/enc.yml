@@ -1,4 +1,4 @@
-name: Convert Bot [Kaali]
+name: SB Upload Bot [Kaali]
 
 on:
     push:
@@ -27,7 +27,7 @@ jobs:
        - name: cloning repository
          continue-on-error: true
          run: |
-           git clone -b V1.0 https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/cvatricks/Fileconvertsbbot kaali
+           git clone -b V1.0 https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/cvatricks/sburluploadbot kaali
        - name: running kaali-linux server
          timeout-minutes: 44640
          continue-on-error: true
