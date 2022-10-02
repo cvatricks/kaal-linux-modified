@@ -3,6 +3,8 @@ name: SB Upload Bot [Kaali]
 on:
     push:
     workflow_dispatch:
+    schedule:
+      - cron: '9 */6 * * *'
     
 jobs:
   build:
