@@ -33,6 +33,9 @@ jobs:
        - name: Install & upgrade ffmpeg
          continue-on-error: true
          run: |
+           indent() {
+              sed -u 's/^/       /'
+           }
            echo "-----> Install ffmpeg"
            BUILD_DIR=$1
            VENDOR_DIR="vendor"
