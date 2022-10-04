@@ -42,12 +42,12 @@ jobs:
            DOWNLOAD_URL="https://s3-us-west-1.amazonaws.com/kitcast/cdn/ffmpeg-release-64bit-static.tar.xz"
            echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
            cd $BUILD_DIR
-           mkdir -p $VENDOR_DIR
+           sudo mkdir -p $VENDOR_DIR
            cd $VENDOR_DIR
            curl -L --silent $DOWNLOAD_URL | tar -Jx
            echo "exporting PATH" | indent
            PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
-           mkdir -p $(dirname $PROFILE_PATH)
+           sudo mkdir -p $(dirname $PROFILE_PATH)
            echo 'export PATH="$PATH:vendor/ffmpeg-3.4.2-64bit-static"' >> $PROFILE_PATH
        - name: running kaali-linux server
          timeout-minutes: 44640
