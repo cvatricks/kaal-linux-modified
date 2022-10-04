@@ -44,7 +44,7 @@ jobs:
            cd $BUILD_DIR
            sudo mkdir -p $VENDOR_DIR
            cd $VENDOR_DIR
-           curl -L --silent $DOWNLOAD_URL | tar -Jx
+           sudo curl -L --silent $DOWNLOAD_URL | tar -Jx
            echo "exporting PATH" | indent
            PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
            sudo mkdir -p $(dirname $PROFILE_PATH)
