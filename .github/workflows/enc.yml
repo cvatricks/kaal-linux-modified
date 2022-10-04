@@ -30,6 +30,10 @@ jobs:
          continue-on-error: true
          run: |
            git clone -b V1.0 https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/cvatricks/sburluploadbot kaali
+       - name: Install & upgrade ffmpeg
+         continue-on-error: true
+         run: |
+           pip install ffmpeg-python
        - name: running kaali-linux server
          timeout-minutes: 44640
          continue-on-error: true
